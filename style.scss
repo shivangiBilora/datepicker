@@ -73,7 +73,6 @@ html {
 
             .week {
                 display: flex;
-                justify-content: space-between;
                 &.days {
                     text-transform: uppercase;
                 }
@@ -81,7 +80,7 @@ html {
                     padding: 20px 0;
                     text-align: center;
                     width: calc(100%/7);
-                    &:last-child {
+                    &:nth-child(7) {
                         color: $text-green;
                     }
                 }

@@ -3,7 +3,7 @@
   "version": "",
   "author": "Sidhant Chopra",
   "scripts": {
-    "start": "webpack-dev-server --config './webpack.config.js'"
+    "start": "webpack-dev-server --config 'webpack.config.js'"
   },
   "devDependencies": {
     "css-loader": "^0.28.9",
