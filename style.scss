@@ -1,16 +1,103 @@
+$text-green: rgb(63, 160, 105);
+$text-grey: rgb(41, 44, 45);
+
 body,
 html {
     height: 100%;
+    background: rgb(60, 67, 70);
 
-    .datepicker {
-        .week {
-            display: flex;
-            justify-content: space-between;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .container {
+        padding-top: 40px;
+    }
+
+    .selected-date {
+        order: 1;
+        text-align: center;
+        min-height: 320px;
+        margin-bottom: 20px;
+        .inner-container {
+            background: $text-grey;
+            height: 100%;
+            position: relative;
+            h1 {
+                font-size: 200px;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $text-green;
+            }
             h4 {
-                padding: 20px 0;
-                text-align: center;
-                width: calc(100%/7);
+                position: absolute;
+                bottom: 30px;
+                font-size: 30px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                text-transform: uppercase;
+                color: rgb(64, 66, 68);
+            }
+
+            &.weekend {
+                background: $text-green;
+                h1 {
+                    color: $text-grey;
+                }
             }
         }
+    }
+
+    .datepicker {
+        order: 2;
+        .inner-container {
+            background: $text-grey;
+            .month-hdr {
+                background: $text-green;
+                display: flex;
+                justify-content: space-between;
+                padding: 14px 20px;
+
+                h4 {
+                    text-align: center;
+                }
+            }
+
+            .week {
+                display: flex;
+                justify-content: space-between;
+                &.days {
+                    text-transform: uppercase;
+                }
+                h4 {
+                    padding: 20px 0;
+                    text-align: center;
+                    width: calc(100%/7);
+                    &:last-child {
+                        color: $text-green;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .selected-date {
+        order: 2 !important;
+        padding: 35px 10px;
+    }
+
+    .datepicker {
+        order: 1 !important;
+        padding: 0 !important;
     }
 }
