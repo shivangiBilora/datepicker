@@ -102,6 +102,9 @@ html {
             .week-dates {
                 h4 {
                     cursor: pointer;
+                    &:hover {
+                        background-image: linear-gradient(225deg, $text-green 18%, $text-grey 25%);
+                    }
                 }
             }
         }
