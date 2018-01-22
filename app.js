@@ -2,13 +2,14 @@
     console.log("texting");
 
     let today = new Date();
-    let monthsWith31Days = [0, 3, 5, 7, 8, 10, 12];
-    let monthsWith30Days = [1, 2, 4, 6, 9, 11];
+    let monthsWith31Days = [0, 2, 4, 6, 7, 9, 11];
+    let monthsWith30Days = [1, 3, 5, 8, 10];
     let months = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
 
     let activeMonth = '';
+    let activeDate = '';
 
     let generateDateElements = function(date) {
 
@@ -18,6 +19,7 @@
             (monthsWith30Days.includes(month) ? 30 : (year % 4 === 0 ? 29 : 28));
 
         activeMonth = month;
+        activeDate = date;
 
         let firstDate = new Date(date.setDate(1));
 
@@ -53,14 +55,14 @@
 
 
     $(".showNextMonth").on('click', function() {
-        let currDate = new Date();
+        let currDate = activeDate;
         currDate.setMonth(activeMonth + 1);
         currDate = new Date(currDate);
         generateDateElements(currDate)
     });
 
     $(".showPrevMonth").on('click', function() {
-        let currDate = new Date();
+        let currDate = activeDate;
         currDate.setMonth(activeMonth - 1);
         currDate = new Date(currDate);
         generateDateElements(currDate)
