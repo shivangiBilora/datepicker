@@ -1,5 +1,6 @@
 $text-green: rgb(63, 160, 105);
 $text-grey: rgb(41, 44, 45);
+$text-light-grey: rgb(64, 66, 68);
 
 body,
 html {
@@ -44,7 +45,14 @@ html {
                 left: 50%;
                 transform: translate(-50%, 0);
                 text-transform: uppercase;
-                color: rgb(64, 66, 68);
+                color: $text-light-grey;
+            }
+            span {
+                font-size: 22px;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                color: $text-light-grey;
             }
         }
     }
