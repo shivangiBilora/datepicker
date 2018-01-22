@@ -16,12 +16,14 @@
     let calendarDayEle = $(".selected-date .day");
     calendarDayEle.text(days[today.getDay() - 1]);
 
+
     let generateDateElements = function(date) {
 
         let month = date.getMonth();
         let year = date.getFullYear();
         let totalDays = monthsWith31Days.includes(month) ? 31 :
             (monthsWith30Days.includes(month) ? 30 : (year % 4 === 0 ? 29 : 28));
+        let selDate = date.getDate();
 
         activeMonth = month;
         activeDate = date;
@@ -56,6 +58,7 @@
         $('.week-dates').append(dateElements);
 
         $('.month-name').text(`${months[month]} ${year}`);
+        $($('.week-dates').find('h4')[selDate - 1]).addClass('active');
     };
 
 
