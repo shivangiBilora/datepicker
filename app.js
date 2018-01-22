@@ -7,9 +7,14 @@
     let months = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
+    let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     let activeMonth = '';
     let activeDate = '';
+    let calendarDateEle = $(".selected-date h1");
+    calendarDateEle.text(today.getDate());
+    let calendarDayEle = $(".selected-date h4");
+    calendarDayEle.text(days[today.getDay() - 1]);
 
     let generateDateElements = function(date) {
 
@@ -66,6 +71,12 @@
         currDate.setMonth(activeMonth - 1);
         currDate = new Date(currDate);
         generateDateElements(currDate)
+    });
+
+    $(".week-dates").on('click', 'h4', function(evt) {
+        let eleIndex = Array.prototype.indexOf.call(this.parentElement.children, this);
+        calendarDateEle.text(evt.target.textContent);
+        calendarDayEle.text(days[eleIndex]);
     });
 
     generateDateElements(today);
