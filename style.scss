@@ -46,13 +46,14 @@ html {
                 text-transform: uppercase;
                 color: rgb(64, 66, 68);
             }
+        }
+    }
 
-            &.weekend {
-                background: $text-green;
-                h1 {
-                    color: $text-grey;
-                }
-            }
+    .active,
+    .weekend {
+        background: $text-green !important;
+        h1 {
+            color: $text-grey !important;
         }
     }
 
@@ -83,6 +84,9 @@ html {
                     width: calc(100%/7);
                     &:nth-child(7) {
                         color: $text-green;
+                        &.active {
+                            color: #fff;
+                        }
                     }
                 }
             }
@@ -93,6 +97,10 @@ html {
                 }
             }
         }
+    }
+
+    .active {
+        border-radius: 10px;
     }
 }
 

@@ -11,9 +11,9 @@
 
     let activeMonth = '';
     let activeDate = '';
-    let calendarDateEle = $(".selected-date h1");
+    let calendarDateEle = $(".selected-date .date");
     calendarDateEle.text(today.getDate());
-    let calendarDayEle = $(".selected-date h4");
+    let calendarDayEle = $(".selected-date .day");
     calendarDayEle.text(days[today.getDay() - 1]);
 
     let generateDateElements = function(date) {
@@ -75,8 +75,13 @@
 
     $(".week-dates").on('click', 'h4', function(evt) {
         let eleIndex = Array.prototype.indexOf.call(this.parentElement.children, this);
+        $(evt.target).closest('.week-dates').find('h4').removeClass('active');
+        $(evt.target).addClass('active');
         calendarDateEle.text(evt.target.textContent);
         calendarDayEle.text(days[eleIndex]);
+
+        (eleIndex % 6 === 0) ? $(".selected-date .inner-container").addClass("weekend"):
+            $(".selected-date .inner-container").removeClass("weekend");
     });
 
     generateDateElements(today);
